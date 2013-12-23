@@ -4,7 +4,7 @@
 
 ### Run the file
 
-  local_time = time_zone(tim, loc)
+    local_time = time_zone(tim, loc)
 
 tim is a string which contains the epoch time
 
