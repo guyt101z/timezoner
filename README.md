@@ -7,7 +7,9 @@
   local_time = time_zone(tim, loc)
 
 tim is a string which contains the epoch time
+
 loc is a string that contains the zip code (e.g. '94115') and state abbreviation (e.g. ', CA ')
+
 local_time is the output dictionary with the local time
 
 ## License
