@@ -326,6 +326,31 @@ def timezone_est(tim, loc): #tim is assumed to be in miliseconds, and loc contai
             if check_DST(local_tim):
                 local_tim = time.gmtime(tim + (1 + gmt_offset)*3600)
 
+    ###NORTH DAKOTA###
+    elif loc.find(', ND ') >= 0:
+        for z in ['58623', '58651', '58653', #Bowman County
+                  '58639', '58649', #Adams County
+                  '58620', '58643', #Slope County
+                  '58646', '58647', '58650', #Hettinger County
+                  '58529', '58533', '58562', '58564', '58569', #Grant County
+                  '58601', '58602', '58622', '58630', '58641', '58652', '58655', '58656', #Stark County
+                  '58627', '58645', #Billings County
+                  '58621', '58632', '58654']: #Golden Valley County
+            zipcode_str = ', %s ' % z
+            if loc.find(zipcode_str) >= 0:
+                gmt_offset = MST_tz
+                local_tim  = time.gmtime(tim + gmt_offset*3600)
+                #modify for daylight savings time:
+                if check_DST(local_tim):
+                    local_tim = time.gmtime(tim + (1 + gmt_offset)*3600)
+                break
+        else:
+            gmt_offset = CST_tz
+            local_tim  = time.gmtime(tim + gmt_offset*3600)
+            #modify for daylight savings time:
+            if check_DST(local_tim):
+                local_tim = time.gmtime(tim + (1 + gmt_offset)*3600)
+
     ###SOUTH DAKOTA###
     elif loc.find(', SD ') >= 0:
         for z in ['57658','57621','57639','57634','57659', #Corson County
