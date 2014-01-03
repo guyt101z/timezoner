@@ -57,7 +57,7 @@ def timezone_est(tim, loc): #tim is assumed to be in miliseconds, and loc contai
         local_tim  = time.gmtime(tim + gmt_offset*3600)
 
     ###PACIFIC###
-    elif loc.find(', CA ') >= 0 or loc.find(', WA ') >= 0 or loc.find(', ND ') >= 0:
+    elif loc.find(', CA ') >= 0 or loc.find(', WA ') >= 0 or loc.find(', NV ') >= 0:
         gmt_offset = PST_tz
         local_tim  = time.gmtime(tim + gmt_offset*3600)
         #modify for daylight savings time:
