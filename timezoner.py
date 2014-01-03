@@ -16,7 +16,7 @@ def check_DST(local_tim):
             (local_tim.tm_mon  == 11 and DST_day(local_tim.tm_year,1) == local_tim.tm_mday  and local_tim.tm_hour < 1))
     return check_val
 
-def timezone_est(tim, loc): #tim is assumed to be in miliseconds at PST, and loc contains a state designation
+def timezone_est(tim, loc): #tim is assumed to be in miliseconds, and loc contains a state designation
     tim = tim/1000 #convert time to seconds
     lay_tim  = time.gmtime(tim)
     Somoa_tz = -11; HST_tz = -10; AKST_tz = -9; PST_tz = -8; MST_tz = -7; CST_tz = -6
