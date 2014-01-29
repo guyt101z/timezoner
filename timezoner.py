@@ -17,7 +17,7 @@ def check_DST(local_tim):
     return check_val
 
 def timezone_est(tim, loc): #tim is assumed to be in miliseconds, and loc contains a state designation
-    tim = tim/1000 #convert time to seconds
+    tim = tim/1000.0 #convert time to seconds
     lay_tim  = time.gmtime(tim)
     Somoa_tz = -11; HST_tz = -10; AKST_tz = -9; PST_tz = -8; MST_tz = -7; CST_tz = -6
     EST_tz = -5; AST_tz = -4; Palau_tz = 9; ChSt_tz = 10; MHT_tz = 12
