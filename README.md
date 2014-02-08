@@ -2,15 +2,23 @@
 
 ## Get the timezone for an epoch time with zipcode.
 
-### Run the file
+### Usage
 
-    local_time = time_zone(tim, loc)
+    timezone_est(time, loc)
 
-tim is a string which contains the epoch time
+`time` is a string which contains the epoch time in milliseconds
 
-loc is a string that contains the zip code (e.g. '94115') and state abbreviation (e.g. ', CA ')
+`loc` is a string that contains the zip code (e.g. '94115') and state abbreviation (e.g. ', CA ') separated by a comma
 
-local_time is the output dictionary with the local time
+`timezone_est` returns a [struct_time](http://docs.python.org/2/library/time.html#time.struct_time) object
+
+### Example
+
+    timezone_est('1391898323633', '94115, CA')
+    
+will return
+
+    time.struct_time(tm_year=2014, tm_mon=2, tm_mday=8, tm_hour=17, tm_min=25, tm_sec=23, tm_wday=5, tm_yday=39, tm_isdst=0)
 
 ## License
 
